@@ -1,5 +1,5 @@
 {
-  "name": "party-quince",
+  "name": "yahir/party-quince",
   "version": "1.0.0",
   "description": "Invitación digital quinceañera con RSVP",
   "require": {
