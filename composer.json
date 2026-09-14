@@ -1,0 +1,11 @@
+{
+  "name": "party-quince",
+  "version": "1.0.0",
+  "description": "Invitación digital quinceañera con RSVP",
+  "require": {
+    "php": ">=8.1"
+  },
+  "autoload": {
+    "files": []
+  }
+}
