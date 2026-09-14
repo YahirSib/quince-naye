@@ -109,36 +109,23 @@ UPDATE invitados SET token = CONCAT(
 
 ---
 
-## Paso 5: Modificar config.php para TiDB Cloud
+## Paso 5: Estructura del proyecto
 
-Reemplazar el contenido de `config.php` con:
+La estructura de archivos debe ser así:
 
-```php
-<?php
-// config.php
-$host = getenv('DB_HOST') ?: '127.0.0.1';
-$db   = getenv('DB_NAME') ?: 'quince_rapunzel';
-$user = getenv('DB_USER') ?: 'root';
-$pass = getenv('DB_PASS') ?: '';
-$charset = getenv('DB_CHARSET') ?: 'utf8mb4';
-
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-    PDO::MYSQL_ATTR_SSL_CA       => true,
-];
-
-try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
-} catch (\PDOException $e) {
-    throw new \PDOException($e->getMessage(), (int)$e->getCode());
-}
-?>
 ```
-
-> Nota: TiDB Cloud **no necesita** `DB_NAME` ya que todo va en una sola base. Puedes dejar el valor como `quince_rapunzel` o cualquier cosa, no afecta.
+party/
+├── api/
+│   └── index.php          ← Router para Vercel (NO modificar)
+├── config.php             ← Conexión BD (lee variables de entorno)
+├── index.php              ← Invitación principal
+├── admin.php              ← Panel de administración
+├── rsvp_handler.php       ← Endpoint AJAX para RSVP
+├── vercel.json            ← Configuración de Vercel
+├── composer.json          ← Dependencias PHP
+├── *.png, *.jpeg          ← Imágenes
+└── veo_en_ti_la_luz.mp3   ← Música
+```
 
 ---
 
@@ -208,9 +195,13 @@ Luego ir a **Deployments** → click en los tres puntos del deployment más reci
 
 ## Troubleshooting
 
+### Error "The package @vercel/php is not published"
+- Verificar que `vercel.json` use `"runtime": "vercel-php@0.7.4"` (con guión, sin @)
+- NO usar `@vercel/php`
+
 ### Error 500 / No conecta a la BD
 - Verificar que las variables de entorno en Vercel estén bien
-- Verificar que `PDO::MYSQL_ATTR_SSL_CA => true` esté en config.php
+- Verificar que `DB_SSL=true` esté configurada
 - Revisar logs: Vercel → Dashboard → Logs
 
 ### Error "Access denied"
@@ -219,26 +210,11 @@ Luego ir a **Deployments** → click en los tres puntos del deployment más reci
 
 ### Imágenes no cargan
 - Verificar nombres de archivos (sin tildes ni espacios)
-- Renombrar `quinceañera.jpeg` → `quinceanera.jpeg` si hay problemas
+- Las imágenes deben estar en la raíz del repositorio (no en api/)
 
 ### Música no carga
 - Verificar tamaño del MP3 (máx recomendado 4MB para Vercel)
 
 ### La página carga pero no ejecuta PHP
-- Verificar que `vercel.json` y `composer.json` estén en la raíz del repositorio
-- Verificar que el repositorio tenga los archivos: `index.php`, `admin.php`, `rsvp_handler.php`
-
----
-
-## Alternativa: Aiven (MySQL gratis)
-
-Si TiDB no funciona, usar Aiven:
-
-1. Crear cuenta en https://aiven.io (plan Free: 1GB storage, 1GB RAM)
-2. Crear servicio MySQL
-3. Copiar credenciales de conexión
-4. Configurar variables de entorno en Vercel igual que arriba
-5. En config.php, reemplazar `PDO::MYSQL_ATTR_SSL_CA => true` con:
-```php
-PDO::MYSQL_ATTR_SSL_CA => '/path/to/ca-cert.pem',
-```
+- Verificar que `api/index.php` exista
+- Verificar que `vercel.json` tenga la configuración correcta de functions

@@ -1,23 +1,13 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "index.php",
-      "use": "@vercel/php"
-    },
-    {
-      "src": "admin.php",
-      "use": "@vercel/php"
-    },
-    {
-      "src": "rsvp_handler.php",
-      "use": "@vercel/php"
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.7.4",
+      "memory": 3008,
+      "maxDuration": 30
     }
-  ],
+  },
   "routes": [
-    { "src": "^/$", "dest": "/index.php" },
-    { "src": "/index.php(.*)", "dest": "/index.php" },
-    { "src": "/admin.php(.*)", "dest": "/admin.php" },
-    { "src": "/rsvp_handler.php(.*)", "dest": "/rsvp_handler.php" }
+    { "src": "/api/index\\.php", "dest": "/api/index.php" },
+    { "src": "/(.*)", "dest": "/api/index.php" }
   ]
 }
