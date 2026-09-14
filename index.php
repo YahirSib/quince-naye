@@ -137,20 +137,10 @@ $nombreInvitado = $tokenValido ? $invitado['nombre'] : '';
         <!-- ========================================== -->
         <!-- LADO IZQUIERDO: EUGENE + FOTO BEBÉ 1       -->
         <!-- ========================================== -->
-        <img src="/EUGENE.png" alt="Eugene" class="absolute bottom-12 left-[-20px] w-36 md:w-48 animate-float pointer-events-none z-10 opacity-90">
-        
-        <div class="absolute top-20 left-4 md:left-12 w-28 h-32 md:w-36 md:h-40 p-2 bg-white rounded-sm shadow-xl animate-float-delay pointer-events-none z-10" style="--rot: -8deg; transform: rotate(-8deg);">
-            <img src="/bebe1.png" alt="Foto Bebé 1" class="w-full h-full object-cover">
-        </div>
 
         <!-- ========================================== -->
         <!-- LADO DERECHO: RAPUNZEL + FOTO BEBÉ 2       -->
         <!-- ========================================== -->
-        <img src="/RAPUNZEL.png" alt="Rapunzel" class="absolute top-12 right-[-20px] w-40 md:w-52 animate-float-delay pointer-events-none z-10 opacity-90" style="--rot: 0deg;">
-        
-        <div class="absolute bottom-24 right-4 md:right-12 w-28 h-32 md:w-36 md:h-40 p-2 bg-white rounded-sm shadow-xl animate-float pointer-events-none z-10" style="--rot: 10deg; transform: rotate(10deg);">
-            <img src="/bebe2.jpeg" alt="Foto Bebé 2" class="w-full h-full object-cover">
-        </div>
 
         <!-- Linternas de fondo para el intro -->
         <div class="lantern" style="left: 25%; bottom: -10%; width: 22px; height: 35px; animation-duration: 12s; animation-delay: 1s;"></div>
