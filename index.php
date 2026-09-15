@@ -340,7 +340,7 @@ $nombreInvitado = $tokenValido ? $invitado['nombre'] : '';
                 <svg class="w-8 h-8 text-theme-text" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
             </div>
             <p class="text-[0.65rem] uppercase tracking-widest text-theme-text/90 mb-6 px-4 leading-relaxed font-medium">
-                Esta noche será aún más especial con tu presencia. Si querés hacerme un presente, podrás dejar tu sobre en mi buzón de sueños.
+                Esta noche comienza un nuevo capítulo de mi vida, y deseo compartirlo con las personas que hacen mi mundo mas especial. Las muestras de cariño que desees obsequiarme podrán depositarse en mi Buzón de Sueños.
             </p>
         </div>
 
