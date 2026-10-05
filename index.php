@@ -349,7 +349,7 @@ $nombreInvitado = $tokenValido ? $invitado['nombre'] : '';
             <h3 class="font-script text-4xl text-theme-text mb-2 drop-shadow-sm">Confirmar Asistencia</h3>
             
             <p class="font-serif uppercase text-[0.65rem] tracking-widest mb-8 text-theme-text font-bold bg-white/70 py-2 rounded-full inline-block px-6 shadow-sm border border-white">
-                Confirmar antes del <span class="text-theme-gold text-sm ml-1">15 de Octubre</span>
+                Confirmar antes del <span class="text-theme-gold text-sm ml-1">31 de Octubre</span>
             </p>
 
             <?php if (!empty($token) && !$tokenValido): ?>
